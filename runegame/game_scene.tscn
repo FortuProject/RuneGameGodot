@@ -1,0 +1,100 @@
+[gd_scene load_steps=6 format=3 uid="uid://dhdfp2rjqierl"]
+
+[ext_resource type="Script" path="res://game_scene.gd" id="1_v4k2e"]
+[ext_resource type="Texture2D" uid="uid://ccdi8gwr181sy" path="res://Artwork/Background.jpeg" id="2_iiwtb"]
+[ext_resource type="Texture2D" uid="uid://bnt2jctb7py23" path="res://Artwork/BothCards.png" id="3_ppr1m"]
+[ext_resource type="FontFile" uid="uid://c1gupv77oucd" path="res://kenney_mini_square.ttf" id="4_i6b6n"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_vyx8i"]
+font = ExtResource("4_i6b6n")
+font_size = 21
+outline_size = 11
+outline_color = Color(0, 0, 0, 1)
+
+[node name="GameScene" type="Node2D"]
+script = ExtResource("1_v4k2e")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(180, 180)
+scale = Vector2(0.351563, 0.351562)
+texture = ExtResource("2_iiwtb")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+offset_left = 53.0
+offset_right = 330.0
+offset_bottom = 86.0
+
+[node name="Button" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+text = "Draw One Rune"
+
+[node name="Button2" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+text = "Draw Three Runes"
+
+[node name="Button3" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+text = "Clear Rune Selection"
+
+[node name="CardBack" type="Sprite2D" parent="."]
+texture_filter = 1
+position = Vector2(61, 216)
+scale = Vector2(4.0125, 4.5325)
+texture = ExtResource("3_ppr1m")
+hframes = 2
+frame = 1
+
+[node name="CardBack2" type="Sprite2D" parent="."]
+texture_filter = 1
+position = Vector2(179, 216)
+scale = Vector2(4.0125, 4.5325)
+texture = ExtResource("3_ppr1m")
+hframes = 2
+frame = 1
+
+[node name="CardBack3" type="Sprite2D" parent="."]
+texture_filter = 1
+position = Vector2(296, 216)
+scale = Vector2(4.0125, 4.5325)
+texture = ExtResource("3_ppr1m")
+hframes = 2
+frame = 1
+
+[node name="CardContainer" type="Node2D" parent="."]
+z_index = 2
+texture_filter = 1
+position = Vector2(62, 216)
+
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+offset_left = 21.0
+offset_top = 273.0
+offset_right = 336.0
+offset_bottom = 334.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_constants/separation = 40
+
+[node name="OneValue" type="Label" parent="HBoxContainer"]
+custom_minimum_size = Vector2(50, 0)
+layout_mode = 2
+size_flags_horizontal = 3
+text = "rune"
+label_settings = SubResource("LabelSettings_vyx8i")
+
+[node name="TwoValue" type="Label" parent="HBoxContainer"]
+custom_minimum_size = Vector2(50, 0)
+layout_mode = 2
+size_flags_horizontal = 3
+text = "rune"
+label_settings = SubResource("LabelSettings_vyx8i")
+
+[node name="ThreeValue" type="Label" parent="HBoxContainer"]
+custom_minimum_size = Vector2(50, 0)
+layout_mode = 2
+size_flags_horizontal = 3
+text = "rune"
+label_settings = SubResource("LabelSettings_vyx8i")
+
+[connection signal="pressed" from="VBoxContainer/Button" to="." method="_on_button_pressed"]
+[connection signal="pressed" from="VBoxContainer/Button2" to="." method="_on_button_2_pressed"]
+[connection signal="pressed" from="VBoxContainer/Button3" to="." method="_on_button_3_pressed"]

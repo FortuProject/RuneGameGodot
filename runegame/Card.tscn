@@ -1,0 +1,25 @@
+[gd_scene load_steps=3 format=3 uid="uid://0p7neqw6em7i"]
+
+[ext_resource type="Texture2D" uid="uid://olgfrf4hg2nm" path="res://RuneSheet_line.png" id="2_7n0un"]
+[ext_resource type="Texture2D" uid="uid://bnt2jctb7py23" path="res://Artwork/BothCards.png" id="2_rwo4k"]
+
+[node name="CardScene" type="Node2D"]
+z_index = 2
+texture_filter = 1
+
+[node name="Sprite" type="Sprite2D" parent="."]
+visible = false
+z_index = 3
+texture_filter = 1
+scale = Vector2(4, 4)
+texture = ExtResource("2_7n0un")
+hframes = 24
+
+[node name="Card" type="Sprite2D" parent="."]
+visible = false
+z_index = 1
+texture_filter = 1
+scale = Vector2(4, 4.56)
+texture = ExtResource("2_rwo4k")
+region_enabled = true
+region_rect = Rect2(0, 0, 20, 25)
